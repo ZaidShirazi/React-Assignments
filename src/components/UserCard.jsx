@@ -8,7 +8,7 @@ const UserCard = ({ uid, title, firstName, lastName, image }) => {
   return (
     <main>
       <div className="usercard" onClick={() => navigate(`/users/${uid}`)}>
-        <div className="img-container"><img src={image} alt="userImg" /></div>
+        <div className="img-container"><img className="usercard-img" src={image} alt="userImg" /></div>
         <h2>
           {firstName} {lastName}
         </h2>
