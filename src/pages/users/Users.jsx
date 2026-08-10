@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import UserCard from "../../components/UserCard";
 import "./users.css";
 
-const skeletonArray = Array.from({ length: 30 });
+const skeletonArray = Array.from({ length: 30 }); // dummy array for skeleton screen
 
 const Users = () => {
   let [users, setUsers] = useState([]);
