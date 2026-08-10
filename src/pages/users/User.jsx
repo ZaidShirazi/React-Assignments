@@ -31,8 +31,8 @@ const User = () => {
 
       <div>
         {userInfo ? (
-          // UI
-          <section className="relative pt-40 pb-24">
+          // User detail section
+          <section className="relative pt-40 pb-24 bg-[#f3f4f6]">
             <img
               src="https://pagedone.io/asset/uploads/1705473378.png"
               alt="cover-image"
@@ -43,7 +43,7 @@ const User = () => {
                 <img
                   src={userInfo?.image}
                   alt="user-avatar-image"
-                  className="border-1 rounded-full object-cover p-3"
+                  className="w-40 h-40 rounded-full object-cover p-3 border-white border-4"
                 />
               </div>
               <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
@@ -56,7 +56,7 @@ const User = () => {
                     {userInfo?.address?.country}
                   </p>
                 </div>
-                <button className="rounded-full py-3.5 px-5 bg-gray-100 flex items-center group transition-all duration-500 hover:bg-indigo-100 ">
+                <button className="rounded-full py-3.5 px-5 flex items-center group transition-all duration-500 bg-indigo-100 ">
                   <svg
                     xmlns="http://w3.org"
                     width="18"
@@ -105,8 +105,51 @@ const User = () => {
             </div>
           </section>
         ) : (
-          //
-          <h2>Loading user profile...</h2>
+          /* Skeleton Screen */
+          <div className="w-full bg-[#f8f9fa] min-h-screen font-sans animate-pulse">
+            <div className="h-48 w-full bg-gray-200" />
+
+            <div className="max-w-6xl mx-auto px-12 -mt-16 pb-12">
+              <div className="w-32 h-32 rounded-full border-4 border-white bg-gray-200 shadow-sm" />
+
+              <div className="flex flex-wrap justify-between items-start gap-4 mt-6">
+                <div className="min-w-[200px]">
+                  <div className="h-8 w-64 max-w-full bg-gray-300 rounded-md" />
+
+                  <div className="h-4 w-48 max-w-full bg-gray-200 rounded-md mt-2" />
+                </div>
+
+                <div className="h-10 w-24 bg-gray-200 rounded-full shrink-0" />
+              </div>
+
+              <div className="mt-12 space-y-4 max-w-xl">
+                <div className="flex space-x-2 items-center">
+                  <div className="h-4 w-20 bg-gray-300 rounded" />
+                  <div className="h-4 w-32 bg-gray-200 rounded" />
+                </div>
+
+                <div className="flex space-x-2 items-center">
+                  <div className="h-4 w-12 bg-gray-300 rounded" />
+                  <div className="h-4 w-28 bg-gray-200 rounded" />
+                </div>
+
+                <div className="flex space-x-2 items-center">
+                  <div className="h-4 w-16 bg-gray-300 rounded" />
+                  <div className="h-4 w-60 max-w-[70%] bg-gray-200 rounded" />
+                </div>
+
+                <div className="flex space-x-2 items-center">
+                  <div className="h-4 w-14 bg-gray-300 rounded" />
+                  <div className="h-4 w-16 bg-gray-200 rounded" />
+                </div>
+
+                <div className="flex space-x-2 items-center">
+                  <div className="h-4 w-16 bg-gray-300 rounded" />
+                  <div className="h-4 w-52 max-w-[70%] bg-gray-200 rounded" />
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </>
