@@ -32,7 +32,7 @@ const Users = () => {
     <>
       <Navbar />
 
-      <main className="main">
+      <main id="main">
         {isLoading ? (
           skeletonArray.map((_, index) => {
             return (

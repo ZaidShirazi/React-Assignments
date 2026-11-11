@@ -1,10 +1,20 @@
-.main {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  padding: 1rem;
+#main {
+  box-sizing: border-box;
+  width: 100%;
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
+  padding: 5.5rem 1.25rem 2rem; /* Top | Left/Right | Bottom */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+/* Media Query For Mobile */
+@media (max-width: 480px) {
+  .main {
+    padding: 4.75rem 0.875rem 1.5rem;
+  }
 }
