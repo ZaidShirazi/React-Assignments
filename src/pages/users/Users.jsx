@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
+import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import UserCard from "../../components/UserCard";
 import "./users.css";
 
-const skeletonArray = Array.from({ length: 30 }); // dummy array for skeleton screen
+// dummy array for skeleton screen
+const skeletonArray = Array.from({ length: 30 });
 
 const Users = () => {
   let [users, setUsers] = useState([]);

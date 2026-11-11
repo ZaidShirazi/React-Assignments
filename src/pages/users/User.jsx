@@ -17,7 +17,7 @@ const User = () => {
       setError({});
 
       let response = await axios.get(`https://dummyjson.com/users/${id}`);
-      console.log(response?.data); // user object
+      // console.log(response?.data); // user object
       setUserInfo(response?.data);
     } catch (error) {
       console.error(error);
@@ -47,7 +47,7 @@ const User = () => {
               <div className="w-32 h-32 rounded-full border-4 border-white bg-gray-200 shadow-sm" />
 
               <div className="flex flex-wrap justify-between items-start gap-4 mt-6">
-                <div className="min-w-[200px]">
+                <div className="min-w-50">
                   <div className="h-8 w-64 max-w-full bg-gray-300 rounded-md" />
 
                   <div className="h-4 w-48 max-w-full bg-gray-200 rounded-md mt-2" />
@@ -132,27 +132,46 @@ const User = () => {
 
               <div className="flex flex-col lg:flex-row max-lg:gap-5 items-start justify-between py-0.5 border-t border-gray-200 pt-6 mt-6">
                 <div className="flex flex-col items-start space-y-2">
+                  {/* Username */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     Username: @{userInfo?.username}
                   </p>
+
+                  {/* Title */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     Title: {userInfo?.company?.title}
                   </p>
+
+                  {/* University */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     University: {userInfo?.university}
                   </p>
+
+                  {/* Gender */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     Gender: {userInfo?.gender}
                   </p>
+
+                  {/* Address */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     Address: {userInfo?.address?.address},{" "}
                     {userInfo?.address?.city}
                   </p>
+
+                  {/* Email */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700">
                     Email: {userInfo?.email}
                   </p>
+                  
+                  {/* Phone */}
                   <p className="text-[clamp(0.95rem,2vw,1.15rem)] font-medium text-gray-700 ">
-                    Phone: {userInfo?.phone}
+                    Phone:{" "}
+                    <a
+                      href={`tel:${userInfo?.phone?.replace(/[^\d+]/g, "") || ""}`}
+                      className="hover:underline hover:text-blue-600 transition-colors"
+                    >
+                      {userInfo?.phone}
+                    </a>
                   </p>
                 </div>
               </div>
@@ -167,7 +186,7 @@ const User = () => {
               </p>
               <p>
                 <span className="error-icon">!</span>Error Message:{" "}
-                {JSON.stringify(error.response?.data?.message)}
+                {JSON.stringify(error?.response?.data?.message)}
               </p>
             </div>
           </div>
